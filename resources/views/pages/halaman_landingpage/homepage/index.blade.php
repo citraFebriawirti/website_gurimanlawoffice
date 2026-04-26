@@ -136,10 +136,11 @@
             <h4>Our Lawyers</h4>
             <h2>Meet My Team</h2>
             <p>Our team consists of experienced legal professionals who are ready to provide the best solutions for all your legal problems with high commitment and integrity.</p>
+            <p>Gumiran law adalah salah legal propfesionalnb who ready besybn dafgahghb hhsdjhd</p>
           </div>
           <!--Section Title End-->
         </div>
-      </div>
+      </div> 
       <div class="row">
         <div class="col-12">
           <div class="team-slider-wrap">
@@ -152,11 +153,13 @@
                 </div>
                 <div class="team-content">
                   <h2>{{ $dataTeam->title_team }}</h2>
+               
                   <p>
                     {!! Illuminate\Support\Str::limit($dataTeam->description_team, 200) !!}
                   </p>
                   <ul class="team-social-link">
                     <!-- Tambahkan ikon sosial jika ada -->
+                    
                   </ul>
                 </div>
               </a>

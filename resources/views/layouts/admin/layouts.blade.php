@@ -28,7 +28,7 @@
         <div class="sidebar-brand-icon">
           {{-- <img src="img/logo/logo2.png"> --}}
         </div>
-        <div class="sidebar-brand-text mx-3">Guriman Law Office</div>
+        <div class="sidebar-brand-text mx-3">Gumiran Law Office</div>
       </a>
       <hr class="sidebar-divider my-0">
       <li class="nav-item active">

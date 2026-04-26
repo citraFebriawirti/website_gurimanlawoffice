@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('tb_hero', function (Blueprint $table) {
             $table->string('id_hero')->primary()->unique();
             $table->string('title_hero');
-            $table->string('description_hero');
+            $table->longText('description_hero');
             $table->string('link_hero');
             $table->string('image_hero');
             $table->string('status_hero');
