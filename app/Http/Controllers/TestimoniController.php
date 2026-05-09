@@ -45,7 +45,7 @@ class TestimoniController extends Controller
             'name_testimoni' => 'required',
             'position_testimoni' => 'required',
             'description_testimoni' => 'required',
-            'image_testimoni' => 'required|mimes:png,jpg',
+            'image_testimoni' => 'nullable|mimes:png,jpg',
             'status_testimoni' => 'required',
         ]);
 
@@ -105,7 +105,7 @@ class TestimoniController extends Controller
             'name_testimoni' => 'required',
             'position_testimoni' => 'required',
             'description_testimoni' => 'required',
-            'image_testimoni' => 'required|mimes:png,jpg',
+            'image_testimoni' => 'nullable|mimes:png,jpg',
             'status_testimoni' => 'required',
         ]);
 

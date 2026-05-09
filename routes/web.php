@@ -22,6 +22,7 @@ use App\Http\Controllers\LandingPage\LandingPageContactController;
 use App\Http\Controllers\LandingPage\LandingPageJoinUsController;
 use App\Http\Controllers\LandingPage\LandingPageProductController;
 use App\Http\Controllers\LandingPage\LandingPageTeamWorkController;
+use App\Http\Controllers\LandingPage\LandingPageGalleryWorkController;
 use App\Http\Controllers\Landingpage\LayoutsController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LegalitasController;
@@ -60,6 +61,8 @@ Route::get('/teamlandingpage', [LandingPageTeamWorkController::class, 'index'])-
 Route::get('/teamlandingpage/{id}', [LandingPageTeamWorkController::class, 'show'])->name('teamlandingpage.show');
 
 
+Route::get('/gallerylandingpage', [LandingPageGalleryWorkController::class, 'index'])->name('gallerylandingpage');
+Route::get('/gallerylandingpage/{id}', [LandingPageGalleryWorkController::class, 'show'])->name('gallerylandingpage.show');
 
 Route::get('/productlandingpage', [LandingPageProductController::class, 'index'])->name('productlandingpage');
 Route::get('/productlandingpage/{id}', [LandingPageProductController::class, 'show'])->name('productlandingpage.show');
@@ -89,7 +92,7 @@ Route::get('/logout', [logoutController::class, 'logout'])->name('logout');
 //         'visi' => VisiOfficeController::class,
 //         'misi' => MisiOfficeController::class,
 //         'product' => ProductController::class,
-//         'team' => TeamController::class,
+//         'gallery' => TeamController::class,
 //         'businespartner' => BusinessPartnerController::class,
 //         'users' => UsersController::class,
 //         'hero' => HeroController::class,

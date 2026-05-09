@@ -1566,6 +1566,12 @@ Common Style CSS
 	flex: 0 0 245px;
 	
 }
+
+.team-img-gallery {
+	border: 10px solid #303030;
+	flex: 0 0 245px;
+	
+}
 .team-content {
 	margin-left: 50px;
 }
