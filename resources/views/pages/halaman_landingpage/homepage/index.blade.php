@@ -27,9 +27,25 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-xl-6">
-                    <div class="hero-img img-full mt-30" data-wow-duration="1.5s"
-                        style="visibility: visible; animation-duration: 1.5s; animation-name: fadeInUp">
-                        <img src="{{ asset($dataHero->image_hero) }}" alt="" />
+                    <div class="hero-img-carousel owl-carousel">
+
+                        @foreach ($hero as $heroItem)
+
+                        @php
+                        $images = is_array($heroItem->image_hero)
+                        ? $heroItem->image_hero
+                        : json_decode($heroItem->image_hero, true);
+                        @endphp
+
+                        @if($images)
+                        @foreach($images as $image)
+                        <div class="item">
+                            <img src="{{ asset($image) }}" alt="{{ $heroItem->title_hero }}" class="img-fluid">
+                        </div>
+                        @endforeach
+                        @endif
+
+                        @endforeach
 
                     </div>
                 </div>
@@ -95,10 +111,28 @@
                         <!--About Image Area Start-->
                         <div class="col-md-5">
                             <div class="about-img">
-                                @foreach ($hero as $dataHero )
-                                <img src="{{ asset($dataHero->image_hero) }}" alt="" />
+                                <div class="hero-img-carousel owl-carousel">
 
-                                @endforeach
+                                    @foreach ($hero as $heroItem)
+
+                                    @php
+                                    $images = is_array($heroItem->image_hero)
+                                    ? $heroItem->image_hero
+                                    : json_decode($heroItem->image_hero, true);
+                                    @endphp
+
+                                    @if($images)
+                                    @foreach($images as $image)
+                                    <div class="item">
+                                        <img src="{{ asset($image) }}" alt="{{ $heroItem->title_hero }}"
+                                            class="img-fluid">
+                                    </div>
+                                    @endforeach
+                                    @endif
+
+                                    @endforeach
+
+                                </div>
 
 
                                 <!-- <a class="venobox" data-vbtype="video" data-gall="gall-video" data-autoplay="true" href="https://www.youtube.com/watch?v=ffIddFseYXE"><i class="icofont icofont-play-alt-3"></i></a> -->

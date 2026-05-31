@@ -23,6 +23,10 @@ class Hero extends Model
         'status_hero',
     ];
 
+    protected $casts = [
+        'image_hero' => 'array'
+    ];
+
 
     public static function GenerateID()
     {

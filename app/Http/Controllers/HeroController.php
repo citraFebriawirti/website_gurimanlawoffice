@@ -45,7 +45,8 @@ class HeroController extends Controller
             'title_hero' => 'required',
             'description_hero' => 'required',
             'link_hero' => 'required',
-            'image_hero' => 'required|mimes:png,jpg',
+            'image_hero' => 'required',
+            'image_hero.*' => 'image|mimes:jpg,jpeg,png|max:2048',
             'status_hero' => 'required',
         ]);
 
@@ -57,14 +58,26 @@ class HeroController extends Controller
             }
         }
 
-        if ($request->hasFile('image_hero')) {
-            $file = $request->file('image_hero');
-            $namaFile = Str::uuid() . '.' . $file->getClientOriginalExtension(); // Nama unik
-            $file->move(public_path('assets_images/image_hero'), $namaFile);
+        $images = [];
 
-            $path = 'assets_images/image_hero/' . $namaFile;
-        } else {
-            $path = 'default.png';
+        if ($request->hasFile('image_hero')) {
+
+            foreach ($request->file('image_hero') as $file) {
+
+                $fileName =
+                    Str::uuid() .
+                    '.' .
+                    $file->getClientOriginalExtension();
+
+                $file->move(
+                    public_path('assets_images/image_hero'),
+                    $fileName
+                );
+
+                $images[] =
+                    'assets_images/image_hero/' .
+                    $fileName;
+            }
         }
 
         $create = hero::create([
@@ -73,7 +86,7 @@ class HeroController extends Controller
             'description_hero' => $request->description_hero,
             'link_hero' => $request->link_hero,
             'status_hero' => $request->status_hero,
-            'image_hero' => $path
+            'image_hero' => $images
         ]);
 
         return $create
@@ -107,55 +120,69 @@ class HeroController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $validasi = $request->validate([
+        $request->validate([
             'title_hero' => 'required',
             'description_hero' => 'required',
             'link_hero' => 'required',
-
             'status_hero' => 'required',
+            'image_hero.*' => 'nullable|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        // Cek apakah sudah ada status 'Aktif' selain data yang sedang diupdate
+        // Validasi hanya 1 data aktif
         if ($request->status_hero == 'Aktif') {
-            $countActive = hero::where('status_hero', 'Aktif')
-                ->where('id_hero', '!=', $id) // Pastikan tidak menghitung dirinya sendiri
+
+            $countActive = Hero::where('status_hero', 'Aktif')
+                ->where('id_hero', '!=', $id)
                 ->count();
+
             if ($countActive > 0) {
-                return redirect()->back()->with('error', 'There can only be one data with Active status.');
+                return redirect()
+                    ->back()
+                    ->withInput()
+                    ->with('error', 'There can only be one data with Active status.');
             }
         }
 
+        $dataById = Hero::where('id_hero', $id)->firstOrFail();
 
-        $dataById = DB::table('tb_hero')->where('id_hero', $id)->first();
+        // Ambil gambar lama
+        $images = $dataById->image_hero ?? [];
 
-        if ($request->file('image_hero')) {
+        // Jika upload gambar baru
+        if ($request->hasFile('image_hero')) {
 
-            $namaFileOri = $request->file('image_hero')->getClientOriginalName();
+            $images = [];
 
-            $request->file('image_hero')->move(public_path('assets_images/image_hero'), $namaFileOri);
+            foreach ($request->file('image_hero') as $file) {
 
-            $namaFile = 'assets_images/image_hero/' . $namaFileOri;
-        } else {
+                $fileName = Str::uuid() . '.' . $file->getClientOriginalExtension();
 
-            $namaFile = $dataById->image_hero;
+                $file->move(
+                    public_path('assets_images/image_hero'),
+                    $fileName
+                );
+
+                $images[] = 'assets_images/image_hero/' . $fileName;
+            }
         }
 
-        $update = hero::where('id_hero', $id)->update([
-            'id_hero' => hero::GenerateID(),
+        $update = Hero::where('id_hero', $id)->update([
             'title_hero' => $request->title_hero,
             'description_hero' => $request->description_hero,
             'link_hero' => $request->link_hero,
             'status_hero' => $request->status_hero,
-            'image_hero' => $namaFile
+            'image_hero' => $images
         ]);
 
         if ($update) {
-
-            return redirect()->route('hero.index')->with('success', 'Data updated successfully');
-        } else {
-
-            return redirect()->route('hero.index')->with('error', 'data failed to update');
+            return redirect()
+                ->route('hero.index')
+                ->with('success', 'Data updated successfully');
         }
+
+        return redirect()
+            ->route('hero.index')
+            ->with('error', 'Data failed to update');
     }
 
     /**
