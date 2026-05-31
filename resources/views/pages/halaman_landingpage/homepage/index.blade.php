@@ -4,7 +4,7 @@
 <!--Slider Area Start-->
 <div class="slider-area">
     <div class="single-slider"
-        style="background-image: url( {{ asset('landingpage/assets/img/slider/slider-bg.jpg') }})">
+        style="background-image: url({{ asset('landingpage/assets/img/slider/slider-bg.jpg') }})">
         <div class="container">
             @foreach ($hero as $dataHero)
             <div class="row align-items-center">

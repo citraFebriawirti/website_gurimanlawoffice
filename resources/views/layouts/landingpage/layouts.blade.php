@@ -4,128 +4,100 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>{{ env('APP_NAME') }}</title>
+
+    {{-- Primary SEO --}}
+    <title>Gumiran Law Office | Jasa Hukum Profesional di Indonesia</title>
+
+    <meta name="title" content="Gumiran Law Office | Jasa Hukum Profesional di Indonesia" />
+
     <meta name="description"
-        content="Gumiran Law Office menyediakan jasa hukum profesional di Indonesia. Konsultasi hukum, litigasi, dan layanan hukum lainnya. Hubungi kami sekarang!" />
+        content="Gumiran Law Office menyediakan layanan hukum profesional di Indonesia meliputi konsultasi hukum, litigasi, legal drafting, corporate law, perizinan, dan layanan hukum lainnya." />
+
     <meta name="keywords"
-        content="jasa hukum, pengacara profesional, Gumiran Law Office, konsultasi hukum, litigasi Indonesia" />
+        content="Gumiran Law Office, law firm Indonesia, jasa hukum Indonesia, pengacara indonesia, konsultasi hukum, litigasi, legal drafting, corporate lawyer Indonesia" />
+
+    <meta name="author" content="Gumiran Law Office" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="Indonesia" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="Content-Security-Policy" content="frame-src 'self' https://www.google.com/;">
 
-    <!-- Place favicon.ico in the root directory -->
+    {{-- Canonical URL --}}
+    <link rel="canonical" href="https://gumiranlaw.com/" />
+
+    {{-- Open Graph / Facebook --}}
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://gumiranlaw.com/" />
+    <meta property="og:title" content="Gumiran Law Office | Jasa Hukum Profesional di Indonesia" />
+    <meta property="og:description"
+        content="Layanan hukum profesional untuk kebutuhan litigasi, konsultasi hukum, legal drafting, dan corporate law di Indonesia." />
+    <meta property="og:image" content="{{ asset('admin/assets/img/icon.png') }}" />
+
+    {{-- Twitter --}}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Gumiran Law Office | Jasa Hukum Profesional di Indonesia" />
+    <meta name="twitter:description" content="Layanan hukum profesional di Indonesia bersama Gumiran Law Office." />
+    <meta name="twitter:image" content="{{ asset('admin/assets/img/icon.png') }}" />
+
+    {{-- Security --}}
+    <meta http-equiv="Content-Security-Policy" content="frame-src 'self' https://www.google.com/;" />
+
+    {{-- Favicon --}}
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('admin/assets/img/icon.png') }}" />
-    <!--All Css Here-->
 
-    <!-- Droid Font CSS-->
+    <!-- =========================
+        CSS FILES
+    ========================== -->
+
+    {{-- Droid Font CSS --}}
     <link rel="stylesheet" href="{{ asset('landingpage/assets/css/droid.css') }}" />
-    <!-- ICO Font CSS -->
+
+    {{-- ICO Font CSS --}}
     <link rel="stylesheet" href="{{ asset('landingpage/assets/css/icofont.css') }}" />
-    <!-- Font Awesome CSS -->
+
+    {{-- Font Awesome CSS --}}
     <link rel="stylesheet" href="{{ asset('landingpage/assets/css/font-awesome.min.css') }}" />
-    <!-- Animate CSS -->
+
+    {{-- Animate CSS --}}
     <link rel="stylesheet" href="{{ asset('landingpage/assets/css/animate.css') }}" />
-    <!-- Owl Carousel CSS -->
+
+    {{-- Owl Carousel CSS --}}
     <link rel="stylesheet" href="{{ asset('landingpage/assets/css/owl.carousel.min.css') }}" />
-    <!-- Datepicker CSS -->
+
+    {{-- Datepicker CSS --}}
     <link rel="stylesheet" href="{{ asset('landingpage/assets/css/jquery.datepicker.css') }}" />
-    <!-- Calendar CSS -->
+
+    {{-- Calendar CSS --}}
     <link rel="stylesheet" href="{{ asset('landingpage/assets/css/zabuto_calendar.css') }}" />
-    <!-- Meanmenu CSS -->
+
+    {{-- Meanmenu CSS --}}
     <link rel="stylesheet" href="{{ asset('landingpage/assets/css/meanmenu.min.css') }}" />
-    <!-- Venobox CSS -->
+
+    {{-- Venobox CSS --}}
     <link rel="stylesheet" href="{{ asset('landingpage/assets/css/venobox.css') }}" />
-    <!-- Bootstrap CSS -->
+
+    {{-- Bootstrap CSS --}}
     <link rel="stylesheet" href="{{ asset('landingpage/assets/css/bootstrap.min.css') }}" />
-    <!-- Style CSS -->
+
+    {{-- Main Style --}}
     <link rel="stylesheet" href="{{ asset('landingpage/assets/css/style.css') }}" />
-    <!-- Responsive CSS -->
+
+    {{-- Responsive CSS --}}
     <link rel="stylesheet" href="{{ asset('landingpage/assets/css/responsive.css') }}" />
-    <!-- Modernizr JS -->
+
+    {{-- Owl Carousel CDN --}}
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+
+    {{-- Modernizr --}}
     <script src="{{ asset('landingpage/assets/js/vendor/modernizr-2.8.3.min.js') }}"></script>
 
-    {{-- carousel  --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-
-
-
-    <!-- meghilangkan google translate -->
+    {{-- =========================
+        CUSTOM STYLE
+    ========================== --}}
     <style>
-        /* floating wa */
-        .float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 90px;
-            right: 40px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
-            z-index: 100;
-        }
-
-        .my-float {
-            margin-top: 16px;
-        }
-
-        .goog-logo-link,
-        .goog-te-gadget span,
-        .goog-te-banner-frame.skiptranslate {
-            display: none !important;
-        }
-
-        .goog-te-banner-frame {
-            display: none !important;
-        }
-
-        .goog-te-gadget {
-            font-size: 0px !important;
-        }
-
-        .goog-te-gadget span,
-        .goog-te-gadget img {
-            display: none !important;
-        }
-
-        .goog-te-banner-frame.skiptranslate {
-            display: none !important;
-        }
-
-        .goog-te-banner-frame {
-            display: none !important;
-        }
-
-        /* CSS untuk menjaga header tetap di atas */
-        /* CSS untuk header secara umum */
-        header {
-            position: relative;
-            /* menjaga posisi header */
-            z-index: 99999999;
-        }
-
-        /* CSS untuk header-top-area tetap fixed */
-        .header-top-area {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 9999;
-            transition: top 0.3s;
-        }
-
-        /* CSS untuk sticky header agar tidak hilang saat scroll */
-        .header-sticky {
-            margin-top: 45px;
-            /* Menambahkan margin untuk menghindari tumpang tindih */
-
-        }
-
-
-        /* testmimoni */
         :root {
             --first_color: #15241c;
             --second-color: #09382f;
@@ -135,20 +107,91 @@
             --sixth-color: #EC9937;
         }
 
+        html,
+        body {
+            overflow-x: hidden;
+        }
+
+        body {
+            top: 0 !important;
+        }
+
+        /* =========================
+            FLOATING WHATSAPP
+        ========================== */
+
+        .float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 90px;
+            right: 40px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 9999;
+        }
+
+        .my-float {
+            margin-top: 16px;
+        }
+
+        /* =========================
+            HIDE GOOGLE TRANSLATE
+        ========================== */
+
+        .goog-logo-link,
+        .goog-te-gadget span,
+        .goog-te-banner-frame.skiptranslate,
+        .goog-te-gadget img {
+            display: none !important;
+        }
+
+        .goog-te-gadget {
+            font-size: 0 !important;
+        }
+
+        /* =========================
+            HEADER
+        ========================== */
+
+        header {
+            position: relative;
+            z-index: 999999;
+        }
+
+        .header-top-area {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            transition: all 0.3s ease;
+        }
+
+        .header-sticky {
+            margin-top: 45px;
+        }
+
+        /* =========================
+            TESTIMONIALS
+        ========================== */
+
         .Testimonials {
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
+            justify-content: center;
             align-items: center;
-            max-width: 100%;
-            margin: 40px 0px;
+            margin: 40px 0;
+            width: 100%;
         }
 
         .Testimonials_title h2 {
             font-size: 42px;
-            letter-spacing: -2px;
             font-weight: 700;
-            letter-spacing: 0;
             margin-bottom: 30px;
             text-align: center;
             color: var(--first_color);
@@ -156,35 +199,22 @@
 
         .Testimonials_title>p {
             max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 10px;
-            margin-bottom: 40px;
+            margin: 10px auto 40px;
             font-weight: 300;
             text-align: center;
-
         }
 
-
-        .testimonials_container {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-
+        .testimonials_container,
         .testimonials_container_center {
             display: flex;
-            flex-direction: row;
             justify-content: center;
             align-items: center;
+            position: relative;
         }
 
         .testimonials_content {
             position: relative;
-            transition: all .3s ease-in-out;
+            transition: all 0.3s ease-in-out;
             transform: scale(0.9);
             opacity: 0.9;
         }
@@ -202,9 +232,10 @@
         .testimonials_avatar img {
             width: 90px;
             height: 90px;
-            border-radius: 100%;
+            border-radius: 50%;
             border: 6px solid #fff;
             box-shadow: 0 9px 26px rgba(58, 87, 135, 0.1);
+            object-fit: cover;
         }
 
         .testimonials_text {
@@ -212,43 +243,15 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 75px 50px 75px;
+            padding: 75px 50px;
             overflow: hidden;
             background: var(--third-color);
-            border: 1ps solid #f1f1f1;
             border-radius: 10px;
-            transition: all .3s ease-in-out;
+            transition: all 0.3s ease-in-out;
         }
-
-        .testimonials_text_after {
-            font-style: normal;
-            font-weight: normal;
-            text-decoration: inherit;
-            position: absolute;
-            color: #b99044;
-            opacity: .3;
-            font-size: 35px;
-            transition: all 400ms linear;
-            bottom: 25px;
-            right: 30px;
-        }
-
-        .testimonials_text_before {
-            font-style: normal;
-            font-weight: normal;
-            text-decoration: inherit;
-            position: absolute;
-            color: #b99044;
-            opacity: .3;
-            font-size: 35px;
-            transition: all 400ms linear;
-            top: 25px;
-            left: 30px;
-        }
-
 
         .testimonials_text p {
-            color: white;
+            color: #fff;
             font-size: 14px;
             font-family: Georgia, "Times New Roman", Times, serif;
             font-style: italic;
@@ -259,8 +262,7 @@
 
         .testimonials_information h3 {
             font-weight: 600;
-            color: white;
-            ;
+            color: #fff;
             font-size: 18px;
         }
 
@@ -268,13 +270,12 @@
             font-weight: 400;
             font-size: 12px;
             padding-top: 6px;
-            color: white;
-            ;
+            color: #fff;
         }
 
         .testimonials_container_center .active {
             opacity: 1;
-            transform: scale(1.0);
+            transform: scale(1);
             width: 100%;
             flex-grow: 6;
         }
@@ -284,16 +285,20 @@
             box-shadow: 0 9px 26px rgba(58, 87, 135, 0.1);
         }
 
+        /* =========================
+            CAROUSEL BUTTON
+        ========================== */
+
         .listing-carousel-button {
             position: relative;
             width: 80px;
             height: 50px;
-            z-index: 1;
             cursor: pointer;
             background: var(--second-color);
             box-shadow: 0 9px 26px rgba(58, 87, 135, 0.45);
-            transition: all 200ms linear;
+            transition: all 0.2s ease;
             outline: none;
+            z-index: 1;
         }
 
         .listing-carousel-button.listing-carousel-button-next {
@@ -306,17 +311,10 @@
             border-radius: 0 60px 60px 0;
         }
 
-        .listing-carousel-button.listing-carousel-button-next:hover {
-            right: -15px;
-            background: rgba(6, 27, 65, 0.4);
-        }
-
-        .listing-carousel-button.listing-carousel-button-prev:hover {
-            left: -15px;
+        .listing-carousel-button:hover {
             background: rgba(6, 27, 65, 0.4);
         }
     </style>
-
 </head>
 
 <body>
@@ -404,7 +402,7 @@
                             <!--Header Logo Start-->
                             <div class="col-md-3">
                                 <div class="header-logo">
-                                    <a href="index.html"><img
+                                    <a href="{{ route('/') }}"><img
                                             src="{{ asset('landingpage/assets/img/logo/logoo.png?v=1') }}" alt=""
                                             width="900" height="80" style="object-fit: contain"></a>
                                 </div>
